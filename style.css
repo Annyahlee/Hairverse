@@ -1,0 +1,140 @@
+:root {
+    --cor-fundo: #fceaff;
+    --cor-primaria: #c084fc;
+    --cor-secundaria: #fda4af;
+    --cor-texto: #4b0082;
+    --cor-card: #ffffff;
+    --cor-dark: #1a1a1a;
+    --cor-claro: #f9f9f9;
+  }
+  
+  body {
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+    margin: 0;
+    padding: 0;
+    transition: background 0.3s ease;
+  }
+  
+  header {
+    background-color: var(--cor-primaria);
+    color: white;
+    text-align: center;
+    padding: 20px;
+    font-size: 24px;
+    border-bottom: 4px dashed var(--cor-secundaria);
+  }
+  
+  main {
+    padding: 20px;
+    max-width: 600px;
+    margin: auto;
+    background-color: var(--cor-card);
+    border-radius: 20px;
+    box-shadow: 0 0 15px #e0aaff;
+  }
+  
+  h2 {
+    color: var(--cor-primaria);
+    margin-top: 30px;
+    text-align: center;
+  }
+  
+  label {
+    display: block;
+    margin-top: 15px;
+    font-weight: bold;
+  }
+  
+  input,
+  select,
+  textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    border: 2px solid var(--cor-secundaria);
+    margin-top: 5px;
+    margin-bottom: 15px;
+  }
+  
+  button {
+    background-color: var(--cor-primaria);
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+    box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+    transition: background 0.3s;
+  }
+  
+  button:hover {
+    background-color: var(--cor-secundaria);
+  }
+  
+  #mensagem,
+  #mensagemCronograma,
+  #confirmacao {
+    color: var(--cor-primaria);
+    font-weight: bold;
+    margin-top: 10px;
+    text-align: center;
+  }
+  
+  .popup-confirmacao {
+    position: fixed;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--cor-secundaria);
+    color: white;
+    padding: 15px 25px;
+    border-radius: 20px;
+    box-shadow: 0 0 10px #fda4af;
+    z-index: 1000;
+    font-size: 18px;
+  }
+  
+  .estrelas {
+    position: fixed;
+    font-size: 24px;
+    animation: brilhar 1s ease-out;
+    z-index: 999;
+  }
+  
+  @keyframes brilhar {
+    0% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    100% {
+      opacity: 0;
+      transform: scale(2);
+    }
+  }
+  
+  .tema-dark {
+    --cor-fundo: #1a1a1a;
+    --cor-card: #2a2a2a;
+    --cor-texto: #eeeeee;
+    --cor-primaria: #7c3aed;
+    --cor-secundaria: #9333ea;
+  }
+  
+  .tema-rosa {
+    --cor-fundo: #ffe4f1;
+    --cor-primaria: #ec4899;
+    --cor-secundaria: #f472b6;
+    --cor-card: #fff0f5;
+  }
+  
+  .tema-lilas {
+    --cor-fundo: #f3e8ff;
+    --cor-primaria: #a855f7;
+    --cor-secundaria: #c084fc;
+    --cor-card: #f5f3ff;
+  }
+  
