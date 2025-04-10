@@ -12,7 +12,9 @@ const urlsToCache = [
 self.addEventListener("install", event => {
   event.waitUntil(
     caches.open(CACHE_NAME).then(cache => {
-      return cache.addAll(urlsToCache);
+      return cache.addAll(urlsToCache).catch(error => {
+        console.error("Falha ao adicionar arquivos ao cache:", error);
+      });
     })
   );
 });
@@ -36,7 +38,16 @@ self.addEventListener("activate", event => {
 self.addEventListener("fetch", event => {
   event.respondWith(
     caches.match(event.request).then(response => {
-      return response || fetch(event.request);
+      // Se o arquivo estiver no cache, retorna o cache
+      if (response) {
+        return response;
+      }
+      
+      // Se não estiver no cache, tenta buscar na rede
+      return fetch(event.request).catch(error => {
+        console.error("Erro ao buscar a requisição", error);
+        return new Response("Arquivo não encontrado", { status: 404 });
+      });
     })
   );
 });
