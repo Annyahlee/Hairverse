@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <link rel="manifest" href="/manifest.json" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hairverse 🌙</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <header>
+    <h1>Hairverse 💜</h1>
+    <p>Seu cronograma capilar mágico!</p>
+  </header>
+
+  <main>
+    <!-- Estado do cabelo + botão Gerar -->
+    <section id="inicio">
+      <h2>Como está seu cabelo hoje?</h2>
+      <select id="estadoCabelo">
+        <option value="">Escolha uma opção</option>
+        <option value="danificado">Danificado</option>
+        <option value="ressecado">Ressecado</option>
+        <option value="oleoso">Oleoso</option>
+        <option value="normal">Normal</option>
+      </select>
+      <button onclick="gerarCronogramaAutomatico()">Gerar Cronograma</button>
+    </section>
+
+    <!-- Cronograma gerado automaticamente -->
+    <section id="cronogramaSugerido" style="display:none;">
+      <h2>Cronograma Sugerido ✨</h2>
+      <div id="cronogramaResultado"></div>
+    </section>
+
+    <!-- Cronograma manual -->
+    <section>
+      <h2>Monte seu Cronograma</h2>
+      <label>Segunda: <input type="text" id="segunda"/></label><br/>
+      <label>Terça: <input type="text" id="terca"/></label><br/>
+      <label>Quarta: <input type="text" id="quarta"/></label><br/>
+      <label>Quinta: <input type="text" id="quinta"/></label><br/>
+      <label>Sexta: <input type="text" id="sexta"/></label><br/>
+      <label>Sábado: <input type="text" id="sabado"/></label><br/>
+      <label>Domingo: <input type="text" id="domingo"/></label><br/>
+      <button onclick="salvarCronograma()">Salvar Cronograma</button>
+      <p id="mensagemCronograma"></p>
+    </section>
+
+    <!-- Etapa do dia -->
+    <section>
+      <h2>Etapa de Hoje 💆‍♀️</h2>
+      <p id="etapa">Carregando...</p>
+      <button onclick="marcarFeito()">Marcar como feito</button>
+      <p id="mensagem"></p>
+    </section>
+
+    <!-- Anotações -->
+    <section>
+      <h2>Anotações 📝</h2>
+      <textarea id="anotacao" rows="4" cols="30" placeholder="Escreva algo..."></textarea><br/>
+      <button onclick="salvarAnotacao()">Salvar Anotação</button>
+      <p id="confirmacao"></p>
+    </section>
+  </main>
+
+
+  <script src="script.js"></script>
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('service-worker.js')
+      .then(() => console.log("✅ Service Worker registrado com sucesso!"))
+      .catch(error => console.log("❌ Falha ao registrar o Service Worker:", error));
+  }
+</script>
+
+  
+</body>
+</html>
